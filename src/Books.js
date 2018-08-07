@@ -9,7 +9,7 @@ class Books extends Component {
         super(props)
         this.state = {
             books: [],
-            searchField: 'dogs',
+            searchField: '',
             sort: ''
         }
     }

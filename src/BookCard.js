@@ -8,7 +8,7 @@ const BookCard = (props) => {
     const publishYear = volumeInfo.hasOwnProperty('publishedDate') == false ? volumeInfo['publishedDate'] = "0000" : volumeInfo.publishedDate;
 
     return (
-      <div className="card">
+      
       <div className="card-container">
         <img src={thumbNail} alt=""/>
         <div className="desc">
@@ -17,7 +17,7 @@ const BookCard = (props) => {
           <p>Published: {publishYear == "0000" ? "Not available" : publishYear.substring(0,4)}</p>                        
         </div>
       </div>
-      </div>
+      
       
     );
 }
