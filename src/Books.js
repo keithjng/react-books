@@ -30,6 +30,7 @@ class Books extends Component {
             .then((data) => {
                 console.log(data);
                 this.setState({ books: [...data.body.items] })
+
         })
     }
 
@@ -40,6 +41,17 @@ class Books extends Component {
     handleSort = (e) => {
         this.setState({ sort: e.target.value});
     }
+
+    // cleanData = (data) => {
+    //     const cleanData = data.body.items.map((books) => {
+    //         if (book.volumeInfo.authors.length > 1) {
+    //             book.volumeInfo.hasOwnProperty('authors') = data.body.items.volumeInfo.authors[0]
+    //         }
+    //     return book;
+    // })
+    // return cleanedData;
+    // }
+
 
 
     render() {

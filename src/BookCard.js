@@ -7,12 +7,30 @@ const BookCard = (props) => {
     const publishYear = volumeInfo.hasOwnProperty('publishedDate') == false ? volumeInfo['publishedDate'] = "0000" : volumeInfo.publishedDate;
     const {canonicalVolumeLink} = props.info.volumeInfo;
 
-    // if (authors[1] !== undefined) {
-   //   let newAuthors = authors[0] + " and " + authors[1];
-   // }
-   // else {
-   //   newAuthors = authors;
-   // }
+
+
+  //   if (authors.length > 1) {
+  //     let newAuthors = []
+  //     for (let author of authors) {
+  //       if (newAuthors.length > 1){
+  //         newAuthors = newAuthors + 'and' + author
+  //       }
+
+  //  }
+  // }
+  let newAuthors = [authors[0]]
+
+    // const newAuthors = authors
+    if (authors.length > 1) {
+      for (let i = 1; i<authors.length; i++) {
+          newAuthors.push(',')
+          newAuthors.push(' ')
+          newAuthors.push(authors[i])
+        }
+   }
+
+
+
 
     return (
 
@@ -20,7 +38,7 @@ const BookCard = (props) => {
         <a href= {canonicalVolumeLink}> <img src={thumbNail}></img></a>
         <div className="desc">
           <h2>{title}</h2>
-          <h3>Author: {authors}</h3>
+          <h3>Author: {newAuthors}</h3>
           <p>Published: {publishYear == "0000" ? "Not available" : publishYear.substring(0,4)}</p>
         </div>
       </div>
