@@ -40,7 +40,7 @@ class Books extends Component {
     handleSort = (e) => {
         this.setState({ sort: e.target.value});
     }
-    
+
 
     render() {
         const filteredBooks = this.state.books.sort((a, b) => {
@@ -51,16 +51,16 @@ class Books extends Component {
             else if(this.state.sort == 'Oldest'){
                 return parseInt(a.volumeInfo.publishedDate.substring(0, 4)) - parseInt(b.volumeInfo.publishedDate.substring(0, 4));
             }
-          
+
           return;
         })
 
         return (
             <div className="wrapper">
-                <SearchBox 
-                    data={this.state} 
-                    handleSubmit={this.handleSubmit} 
-                    handleChange={this.handleChange} 
+                <SearchBox
+                    data={this.state}
+                    handleSubmit={this.handleSubmit}
+                    handleChange={this.handleChange}
                     handleSort={this.handleSort}
                 />
                 <BookList books={filteredBooks}/>
